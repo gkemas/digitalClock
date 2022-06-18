@@ -5,8 +5,8 @@ function set() {
   let s = date.getSeconds();
   let p = "AM";
   if (h > 12) {
-    let p = "PM";
-    h = 24 - h;
+    p = "PM";
+    h = h - 12;
   }
   if (h == 0) {
     h = 12;
@@ -15,8 +15,8 @@ function set() {
   m = m < 10 ? "0" + m : m;
   s = s < 10 ? "0" + s : s;
 
-  document.querySelector(".container").innerHTML =
-    h + ":" + m + ":" + s + " " +`<small>${p}</small>` + `<hr>`;
+  let sa = h + ":" + m + ":" + s + " " + `<small>${p}</small>` + `<hr>`;
+  document.querySelector(".container").innerHTML = sa;
 
   setInterval(set, 1000);
 }
